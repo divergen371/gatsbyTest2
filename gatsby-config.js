@@ -1,7 +1,15 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Gatsby-test",
+    title: "My Gatsby Site",
+    description: "Hello Gatsby",
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://qiita.com/mottox2/feed`,
+        name: `Qiita`,
+      },
+    },
+  ],
 };
