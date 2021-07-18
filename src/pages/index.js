@@ -1,11 +1,23 @@
 import * as React from "react";
-import { graphql} from "gatsby";
+import { graphql } from "gatsby";
 
+const PostItem = ({ post }) => {
+  const { title, link, pubDate } = post;
+  return (
+    <li>
+      <a href={link}>
+        <small>{pubDate}</small> {title}
+      </a>
+    </li>
+  );
+};
 const IndexPage = (props) => {
   return (
-    <div>
-      <pre>{JSON.stringify(props.data, null, 2)}</pre>
-    </div>
+    <ul>
+      {props.data.allFeedQiita.nodes.map((post) => {
+        return <PostItem post={post} key={post.link} />;
+      })}
+    </ul>
   );
 };
 
